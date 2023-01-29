@@ -90,7 +90,6 @@ procedure TFrmBalanca.FormCreate(Sender: TObject);
       begin
         with DataModule1.queryBalanca do
           begin
-            //ShowMessage('Tabela preenchida!');
             COD.Caption := FieldByName('ID').Value;
             cmbBalanca.ItemIndex := FieldByName('MODELO').Value ;
             cmbPorta.ItemIndex := FieldByName('PORTA').Value ;

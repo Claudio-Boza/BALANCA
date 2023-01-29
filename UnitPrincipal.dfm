@@ -314,8 +314,10 @@ object FrmPrincipal: TFrmPrincipal
     Top = 0
     Width = 813
     Height = 666
+    Margins.Left = 10
     Align = alClient
     TabOrder = 1
+    ExplicitLeft = 170
     object Label1: TLabel
       Left = 40
       Top = 144
@@ -329,11 +331,12 @@ object FrmPrincipal: TFrmPrincipal
       Font.Style = []
       ParentFont = False
     end
-    object MaskEdit1: TMaskEdit
+    object edtDtEntrada: TMaskEdit
       Left = 40
-      Top = 192
-      Width = 73
+      Top = 168
+      Width = 102
       Height = 33
+      Margins.Left = 10
       EditMask = '99/99/0000;1;_'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
@@ -344,6 +347,7 @@ object FrmPrincipal: TFrmPrincipal
       ParentFont = False
       TabOrder = 0
       Text = '  /  /    '
+      OnKeyPress = edtDtEntradaKeyPress
     end
   end
   object ACBrBAL1: TACBrBAL

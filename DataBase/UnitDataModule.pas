@@ -71,10 +71,8 @@ procedure TDataModule1.DataModuleCreate(Sender: TObject);
       port := iniConfig.ReadString('DATABASE', 'port', '');
       host := iniConfig.ReadString('DATABASE', 'host', '');
       dll := iniConfig.ReadString('DATABASE', 'dll', '');
-      MessageDlg(dll, mtInformation, mbOKCancel, 0);
-
     except
-      MessageDlg('Arquivo Confg não encontrado!', mtInformation, mbOKCancel, 0);
+
     end;
     with conexao do
       begin

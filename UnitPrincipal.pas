@@ -15,10 +15,11 @@ type
     btnBalanca: TSpeedButton;
     ACBrBAL1: TACBrBAL;
     Label1: TLabel;
-    MaskEdit1: TMaskEdit;
+    edtDtEntrada: TMaskEdit;
     btnPesagens: TSpeedButton;
     procedure btnBalancaClick(Sender: TObject);
     procedure btnPesagensClick(Sender: TObject);
+    procedure edtDtEntradaKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
   public
@@ -58,5 +59,15 @@ procedure TFrmPrincipal.btnPesagensClick(Sender: TObject);
     end;
   
   end;
+
+procedure TFrmPrincipal.edtDtEntradaKeyPress(Sender: TObject; var Key: Char);
+  var
+    vData : TDate;
+begin
+  if (key = #104) or ( key = #72 ) then
+    begin
+      edtDtEntrada.Text := DateToStr(vData);
+    end;
+end;
 
 end.
