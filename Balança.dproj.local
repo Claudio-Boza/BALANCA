@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2022/09/26 18:09:18.000.374,=D:\P\Dephi\Unit1.pas</Transaction>
+    <Transaction>2023/01/04 23:49:57.000.133,=D:\P\Dephi\Unit1.pas</Transaction>
+    <Transaction>2023/01/27 20:01:12.000.834,=D:\P\Dephi\Unit2.pas</Transaction>
+    <Transaction>2023/01/28 00:41:09.000.986,=D:\P\Dephi\Unit2.pas</Transaction>
+    <Transaction>2023/01/28 00:41:32.000.743,D:\P\Delphi\Balança\UnitPrincipal.dfm=D:\P\Dephi\Unit2.dfm</Transaction>
+    <Transaction>2023/01/28 00:41:32.000.743,D:\P\Delphi\Balança\UnitPrincipal.pas=D:\P\Dephi\Unit2.pas</Transaction>
+    <Transaction>2023/01/28 00:41:40.000.732,D:\P\Delphi\Balança\Balança.dproj=D:\P\Dephi\Project1.dproj</Transaction>
+    <Transaction>2023/01/28 00:41:47.000.838,=D:\P\Delphi\Balança\Unit1.pas</Transaction>
+    <Transaction>2023/01/28 00:41:57.000.575,D:\P\Delphi\Balança\Database\UnitDataModule.pas=D:\P\Delphi\Balança\Unit1.pas</Transaction>
+    <Transaction>2023/01/28 00:41:57.000.575,D:\P\Delphi\Balança\Database\UnitDataModule.dfm=D:\P\Delphi\Balança\Unit1.dfm</Transaction>
+    <Transaction>2023/01/28 00:44:08.000.831,=D:\P\Delphi\Balança\Unit1.pas</Transaction>
+    <Transaction>2023/01/28 00:44:24.000.288,D:\P\Delphi\Balança\Cadastros\UnitCadastroBalanca.pas=D:\P\Delphi\Balança\Unit1.pas</Transaction>
+    <Transaction>2023/01/28 00:44:24.000.288,D:\P\Delphi\Balança\Cadastros\UnitCadastroBalanca.dfm=D:\P\Delphi\Balança\Unit1.dfm</Transaction>
+    <Transaction>2023/01/28 21:53:13.198,=D:\P\Delphi\Balanca\Unit1.pas</Transaction>
+    <Transaction>2023/01/28 21:53:24.841,D:\P\Delphi\Balanca\Cadastros\UnitPesagens.dfm=D:\P\Delphi\Balanca\Unit1.dfm</Transaction>
+    <Transaction>2023/01/28 21:53:24.841,D:\P\Delphi\Balanca\Cadastros\UnitPesagens.pas=D:\P\Delphi\Balanca\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
