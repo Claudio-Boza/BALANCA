@@ -1,6 +1,8 @@
 object FrmPesagens: TFrmPesagens
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
   Caption = 'Pesagens'
   ClientHeight = 686
   ClientWidth = 1025

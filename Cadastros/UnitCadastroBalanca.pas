@@ -61,17 +61,18 @@ begin
     begin
       FieldByName('ID').Value := StrToInt(COD.Caption);
       FieldByName('MODELO').Value := cmbBalanca.ItemIndex;
-      FieldByName('PORTA').Value := cmbPorta.ItemIndex;
-      FieldByName('BOUD_RATE').Value := cmbBaud.ItemIndex;
-      FieldByName('DATA_BITS').Value := cmbData.ItemIndex;
+      FieldByName('PORTA').Value := cmbPorta.Text;
+      FieldByName('BOUD_RATE').Value := cmbBaud.Text;
+      FieldByName('DATA_BITS').Value := cmbData.Text;
       FieldByName('PARITY').Value := cmbParity.ItemIndex;
       FieldByName('STOP_BITS').Value := cmbStop.ItemIndex;
       FieldByName('HANDSHAKING').Value := cmbHand.ItemIndex;
       FieldByName('CAMINHO_TXT').Value := 'C:\Windows\Temp\BalLog.txt';
       FieldByName('MONITORAR').Value := cbMonitorar.Checked;
       FieldByName('TIMEOUT').Value := edtTime.Text;
+      Post;
     end;
-    DataModule1.tb_balanca.Post;
+   // DataModule1.tb_balanca.Post;
 end;
 
 procedure TFrmBalanca.Button4Click(Sender: TObject);
@@ -91,10 +92,10 @@ procedure TFrmBalanca.FormCreate(Sender: TObject);
         with DataModule1.queryBalanca do
           begin
             COD.Caption := FieldByName('ID').Value;
-            cmbBalanca.ItemIndex := FieldByName('MODELO').Value ;
-            cmbPorta.ItemIndex := FieldByName('PORTA').Value ;
-            cmbBaud.ItemIndex := FieldByName('BOUD_RATE').Value;
-            cmbData.ItemIndex := FieldByName('DATA_BITS').Value ;
+            cmbBalanca.ItemIndex := FieldByName('MODELO').Value;
+            cmbPorta.Text := FieldByName('PORTA').Value ;
+            cmbBaud.Text := FieldByName('BOUD_RATE').Value;
+            cmbData.Text := FieldByName('DATA_BITS').Value ;
             cmbParity.ItemIndex := FieldByName('PARITY').Value;
             cmbStop.ItemIndex := FieldByName('STOP_BITS').Value;
             cmbHand.ItemIndex := FieldByName('HANDSHAKING').Value;

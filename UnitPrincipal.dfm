@@ -1,9 +1,11 @@
 object FrmPrincipal: TFrmPrincipal
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
   Caption = 'Balan'#231'a'
   ClientHeight = 666
-  ClientWidth = 982
+  ClientWidth = 1420
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -11,20 +13,22 @@ object FrmPrincipal: TFrmPrincipal
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poMainFormCenter
+  OnClose = FormClose
+  OnShow = FormShow
   TextHeight = 15
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 169
+    Width = 161
     Height = 666
     Align = alLeft
     TabOrder = 0
     DesignSize = (
-      169
+      161
       666)
     object btnBalanca: TSpeedButton
       AlignWithMargins = True
-      Left = 12
+      Left = 4
       Top = 555
       Width = 145
       Height = 89
@@ -168,7 +172,7 @@ object FrmPrincipal: TFrmPrincipal
     end
     object btnPesagens: TSpeedButton
       AlignWithMargins = True
-      Left = 12
+      Left = 4
       Top = 460
       Width = 145
       Height = 89
@@ -307,52 +311,306 @@ object FrmPrincipal: TFrmPrincipal
         0000000000000000000000000000000000000000000000000000000000000000
         000000000000}
       OnClick = btnPesagensClick
+      ExplicitLeft = 12
     end
   end
   object Panel2: TPanel
-    Left = 169
+    Left = 161
     Top = 0
-    Width = 813
+    Width = 1259
     Height = 666
     Margins.Left = 10
     Align = alClient
     TabOrder = 1
-    ExplicitLeft = 170
-    object Label1: TLabel
-      Left = 40
-      Top = 144
-      Width = 102
-      Height = 25
-      Caption = 'Data Entrada'
+    object GroupBox1: TGroupBox
+      Left = 14
+      Top = 16
+      Width = 331
+      Height = 553
+      Caption = 'Entrada'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
-      Font.Height = 25
+      Font.Height = -16
       Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
-    end
-    object edtDtEntrada: TMaskEdit
-      Left = 40
-      Top = 168
-      Width = 102
-      Height = 33
-      Margins.Left = 10
-      EditMask = '99/99/0000;1;_'
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = 15
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      MaxLength = 10
+      Font.Style = [fsBold]
       ParentFont = False
       TabOrder = 0
-      Text = '  /  /    '
-      OnKeyPress = edtDtEntradaKeyPress
+      object Label1: TLabel
+        Left = 11
+        Top = 48
+        Width = 111
+        Height = 25
+        Caption = 'Data Entrada'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = 25
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label2: TLabel
+        Left = 139
+        Top = 48
+        Width = 121
+        Height = 25
+        Caption = 'Horas Entrada'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = 25
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label3: TLabel
+        Left = 11
+        Top = 121
+        Width = 82
+        Height = 25
+        Caption = 'Descri'#231#227'o'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = 25
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label4: TLabel
+        Left = 11
+        Top = 289
+        Width = 44
+        Height = 25
+        Caption = 'Peso:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = 25
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object sttPeso: TLabel
+        Left = 11
+        Top = 320
+        Width = 235
+        Height = 66
+        Caption = '10000,00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -67
+        Font.Name = 'DS-Digital'
+        Font.Style = []
+        ParentFont = False
+      end
+      object edtDtEntrada: TMaskEdit
+        Left = 10
+        Top = 79
+        Width = 102
+        Height = 23
+        Margins.Left = 10
+        EditMask = '99/99/0000;1;_'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = 15
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        MaxLength = 10
+        ParentFont = False
+        TabOrder = 0
+        Text = '  /  /    '
+        OnKeyPress = edtDtEntradaKeyPress
+      end
+      object edtHorasEntrada: TMaskEdit
+        Left = 139
+        Top = 79
+        Width = 100
+        Height = 23
+        Margins.Left = 10
+        EditMask = '!90:00;1;_'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = 15
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        MaxLength = 5
+        ParentFont = False
+        TabOrder = 1
+        Text = '  :  '
+        OnKeyPress = edtDtEntradaKeyPress
+      end
+      object Edit1: TEdit
+        Left = 11
+        Top = 152
+        Width = 310
+        Height = 121
+        AutoSize = False
+        TabOrder = 2
+      end
+    end
+    object gbSaida: TGroupBox
+      Left = 374
+      Top = 16
+      Width = 345
+      Height = 541
+      Caption = 'Sa'#237'da'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+      object Label6: TLabel
+        Left = 18
+        Top = 48
+        Width = 91
+        Height = 25
+        Caption = 'Data Sa'#237'da'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = 25
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label7: TLabel
+        Left = 146
+        Top = 48
+        Width = 93
+        Height = 25
+        Caption = 'Hora Sa'#237'da'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = 25
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label8: TLabel
+        Left = 18
+        Top = 121
+        Width = 82
+        Height = 25
+        Caption = 'Descri'#231#227'o'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = 25
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label9: TLabel
+        Left = 18
+        Top = 297
+        Width = 44
+        Height = 25
+        Caption = 'Peso:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = 25
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object lbPesoSaida: TLabel
+        Left = 18
+        Top = 320
+        Width = 235
+        Height = 66
+        Caption = '10000,00'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -67
+        Font.Name = 'DS-Digital'
+        Font.Style = []
+        ParentFont = False
+      end
+      object EdtDataSaida: TMaskEdit
+        Left = 17
+        Top = 79
+        Width = 102
+        Height = 23
+        Margins.Left = 10
+        EditMask = '99/99/0000;1;_'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = 15
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        MaxLength = 10
+        ParentFont = False
+        TabOrder = 0
+        Text = '  /  /    '
+        OnKeyPress = edtDtEntradaKeyPress
+      end
+      object edtHorasSaida: TMaskEdit
+        Left = 146
+        Top = 79
+        Width = 100
+        Height = 23
+        Margins.Left = 10
+        EditMask = '!90:00;1;_'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = 15
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        MaxLength = 5
+        ParentFont = False
+        TabOrder = 1
+        Text = '  :  '
+        OnKeyPress = edtDtEntradaKeyPress
+      end
+      object edtDecricaoSaida: TEdit
+        Left = 18
+        Top = 152
+        Width = 310
+        Height = 121
+        AutoSize = False
+        TabOrder = 2
+      end
+    end
+    object DBGrid1: TDBGrid
+      AlignWithMargins = True
+      Left = 733
+      Top = 4
+      Width = 516
+      Height = 565
+      DataSource = DataModule1.ds_pesagem
+      TabOrder = 2
+      TitleFont.Charset = DEFAULT_CHARSET
+      TitleFont.Color = clWindowText
+      TitleFont.Height = -12
+      TitleFont.Name = 'Segoe UI'
+      TitleFont.Style = []
+    end
+    object Button1: TButton
+      Left = 116
+      Top = 592
+      Width = 177
+      Height = 52
+      Caption = 'Pesar'
+      TabOrder = 3
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Left = 334
+      Top = 592
+      Width = 177
+      Height = 52
+      Caption = 'Salvar'
+      TabOrder = 4
+    end
+    object Button3: TButton
+      Left = 550
+      Top = 592
+      Width = 177
+      Height = 52
+      Caption = 'Button1'
+      TabOrder = 5
     end
   end
   object ACBrBAL1: TACBrBAL
     Porta = 'COM1'
-    Left = 873
-    Top = 576
+    Left = 57
+    Top = 208
   end
 end

@@ -22,17 +22,6 @@ type
     tb_pesagem: TFDTable;
     queryPesagem: TFDQuery;
     ds_pesagem: TDataSource;
-    tb_balancaID: TIntegerField;
-    tb_balancaMODELO: TIntegerField;
-    tb_balancaPORTA: TStringField;
-    tb_balancaBOUD_RATE: TIntegerField;
-    tb_balancaDATA_BITS: TIntegerField;
-    tb_balancaPARITY: TIntegerField;
-    tb_balancaSTOP_BITS: TIntegerField;
-    tb_balancaHANDSHAKING: TIntegerField;
-    tb_balancaCAMINHO_TXT: TStringField;
-    tb_balancaMONITORAR: TBooleanField;
-    tb_balancaTIMEOUT: TIntegerField;
     tb_pesagemID: TIntegerField;
     tb_pesagemDESCRICAO: TStringField;
     tb_pesagemDATA_ENTRADA: TDateField;
@@ -42,6 +31,17 @@ type
     tb_pesagemPESO_BRUTO: TFMTBCDField;
     tb_pesagemPESO_LIQUIDO: TFMTBCDField;
     tb_pesagemPESO_TOTAL: TFMTBCDField;
+    tb_balancaID: TIntegerField;
+    tb_balancaMODELO: TIntegerField;
+    tb_balancaPORTA: TStringField;
+    tb_balancaBOUD_RATE: TStringField;
+    tb_balancaDATA_BITS: TStringField;
+    tb_balancaPARITY: TIntegerField;
+    tb_balancaSTOP_BITS: TIntegerField;
+    tb_balancaHANDSHAKING: TIntegerField;
+    tb_balancaCAMINHO_TXT: TStringField;
+    tb_balancaMONITORAR: TBooleanField;
+    tb_balancaTIMEOUT: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }

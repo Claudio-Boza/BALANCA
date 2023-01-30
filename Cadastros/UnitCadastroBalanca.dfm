@@ -197,6 +197,7 @@ object FrmBalanca: TFrmBalanca
     Top = 69
     Width = 172
     Height = 23
+    AutoComplete = False
     ItemIndex = 0
     TabOrder = 6
     Text = 'balNenhum'
