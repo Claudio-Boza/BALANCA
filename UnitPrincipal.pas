@@ -27,16 +27,19 @@ type
     gbSaida: TGroupBox;
     Label6: TLabel;
     Label7: TLabel;
-    Label8: TLabel;
     Label9: TLabel;
     lbPesoSaida: TLabel;
     EdtDataSaida: TMaskEdit;
     edtHorasSaida: TMaskEdit;
-    edtDecricaoSaida: TEdit;
     DBGrid1: TDBGrid;
     Button1: TButton;
     Button2: TButton;
     Button3: TButton;
+    sttResposta: TLabel;
+    Memo1: TMemo;
+    Panel3: TPanel;
+    Edit2: TEdit;
+    Label10: TLabel;
     procedure btnBalancaClick(Sender: TObject);
     procedure btnPesagensClick(Sender: TObject);
     procedure edtDtEntradaKeyPress(Sender: TObject; var Key: Char);
@@ -47,6 +50,7 @@ type
   private
     { Private declarations }
     procedure InicializarBalanca(Ativar: Boolean);
+    function Converte(cmd: String): String;
   public
     { Public declarations }
   end;
@@ -60,12 +64,28 @@ implementation
 
 uses UnitDataModule, UnitCadastroBalanca, UnitPesagens, ACBrDeviceSerial, ACBrUtil.Base,ACBrUtil.FilesIO;
 
+function TFrmPrincipal.Converte(cmd: String): String;
+  var A : Integer ;
+  begin
+    Result := '' ;
+    For A := 1 to length( cmd ) do
+    begin
+       if not (cmd[A] in ['A'..'Z','a'..'z','0'..'9',
+                          ' ','.',',','/','?','<','>',';',':',']','[','{','}',
+                          '\','|','=','+','-','_',')','(','*','&','^','%','$',
+                          '#','@','!','~' ]) then
+          Result := Result + '#' + IntToStr(ord( cmd[A] )) + ' '
+       else
+          Result := Result + cmd[A] + ' ';
+    end ;
+  end;
+
 procedure TFrmPrincipal.ACBrBAL1LePeso(Peso: Double; Resposta: String);
   var valid : integer;
   begin
      sttPeso.Caption     := formatFloat('##0.000', Peso );
-    // sttResposta.Caption := Converte( Resposta ) ;
-     {
+     sttResposta.Caption := Converte( Resposta ) ;
+
      if Peso > 0 then
         Memo1.Lines.Text := 'Leitura OK !'
      else
@@ -79,7 +99,7 @@ procedure TFrmPrincipal.ACBrBAL1LePeso(Peso: Double; Resposta: String);
           -2 : Memo1.Lines.Text := 'Peso Negativo !' ;
          -10 : Memo1.Lines.Text := 'Sobrepeso !' ;
         end;
-      end ;}
+      end;
   end;
 
 procedure TFrmPrincipal.InicializarBalanca(Ativar: Boolean);
@@ -89,14 +109,6 @@ procedure TFrmPrincipal.InicializarBalanca(Ativar: Boolean);
     if Ativar then
     begin
       //configura porta de comunicação
-      {ShowMessage('MODELO ' + DataModule1.tb_balanca.FieldByName('MODELO').Value);
-      ShowMessage('HANDSHAKING ' + DataModule1.tb_balanca.FieldByName('HANDSHAKING').Value);
-      ShowMessage('PARITY ' + DataModule1.tb_balanca.FieldByName('PARITY').Value);
-      ShowMessage('STOP_BITS ' + DataModule1.tb_balanca.FieldByName('STOP_BITS').Value);
-      ShowMessage('DATA_BITS ' + DataModule1.tb_balanca.FieldByName('DATA_BITS').Value);
-      ShowMessage('BOUD_RATE ' + DataModule1.tb_balanca.FieldByName('BOUD_RATE').Value);
-      ShowMessage('PORTA ' + DataModule1.tb_balanca.FieldByName('PORTA').Value);
-      ShowMessage('CAMINHO_TXT ' + DataModule1.tb_balanca.FieldByName('CAMINHO_TXT').Value);}
       ACBrBAL1.Modelo           := TACBrBALModelo( DataModule1.tb_balanca.FieldByName('MODELO').Value);
       ACBrBAL1.Device.HandShake := TACBrHandShake( DataModule1.tb_balanca.FieldByName('HANDSHAKING').Value);
       ACBrBAL1.Device.Parity    := TACBrSerialParity( DataModule1.tb_balanca.FieldByName('PARITY').Value );
@@ -138,15 +150,27 @@ procedure TFrmPrincipal.btnPesagensClick(Sender: TObject);
     finally
       FrmPesagens.Free;
     end;
-  
+
   end;
 
 procedure TFrmPrincipal.Button1Click(Sender: TObject);
+  var
+    TimeOut : Integer;
+    Time : TTime;
   begin
-    InicializarBalanca(True);
+    //Time :=  GetTimeInDateTime(Now());
+     edtDtEntrada.Text :=  FormatDateTime('dd/mm/yyyy', Date);
+     edtHorasEntrada.Text := FormatDateTime('hh:mm:ss', Now);
+     InicializarBalanca(True);
+     try
+        TimeOut := StrToInt(DataModule1.tb_balanca.FieldByName('TIMEOUT').Value);
+     except
+       TimeOut := 2000;
+     end;
+     //ACBrBAL1.LePeso(TimeOut);
+     ACBrBAL1.LePeso( TimeOut );
+     sttPeso.Caption := FloatToIntStr(ACBrBAL1.LePeso( TimeOut ));
 
-     ShowMessage(DataModule1.tb_balanca.FieldByName('TIMEOUT').Value);
-     ACBrBAL1.LePeso( DataModule1.tb_balanca.FieldByName('TIMEOUT').Value );
   end;
 
 procedure TFrmPrincipal.edtDtEntradaKeyPress(Sender: TObject; var Key: Char);

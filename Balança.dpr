@@ -14,7 +14,6 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  TStyleManager.TrySetStyle('Windows10 SlateGray');
   Application.CreateForm(TFrmPrincipal, FrmPrincipal);
   Application.CreateForm(TDataModule1, DataModule1);
   Application.Run;

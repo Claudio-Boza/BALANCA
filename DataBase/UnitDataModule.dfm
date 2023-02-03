@@ -1,10 +1,11 @@
 object DataModule1: TDataModule1
+  OldCreateOrder = True
   OnCreate = DataModuleCreate
   Height = 480
   Width = 640
   object conexao: TFDConnection
     Params.Strings = (
-      'Database=D:\P\Delphi\Balanca\Database\BANCO.FDB'
+      'Database=D:\BALANCA\DataBase\BANCO.FDB'
       'User_Name=SYSDBA'
       'Password=masterkey'
       'Port=3050'
@@ -28,6 +29,7 @@ object DataModule1: TDataModule1
     Connection = conexao
     UpdateOptions.AssignedValues = [uvUpdateMode]
     UpdateOptions.UpdateMode = upWhereChanged
+    UpdateOptions.UpdateTableName = 'BALANCA'
     TableName = 'BALANCA'
     Left = 40
     Top = 160
@@ -101,6 +103,7 @@ object DataModule1: TDataModule1
   object tb_pesagem: TFDTable
     IndexFieldNames = 'ID'
     Connection = conexao
+    UpdateOptions.UpdateTableName = 'PESAGEM'
     TableName = 'PESAGEM'
     Left = 32
     Top = 256
@@ -109,6 +112,16 @@ object DataModule1: TDataModule1
       Origin = 'ID'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Visible = False
+    end
+    object tb_pesagemPLACA: TStringField
+      FieldName = 'PLACA'
+      Origin = 'PLACA'
+      Size = 8
+    end
+    object tb_pesagemMOTORISTA: TStringField
+      FieldName = 'MOTORISTA'
+      Origin = 'MOTORISTA'
+      Size = 80
     end
     object tb_pesagemDESCRICAO: TStringField
       DisplayLabel = 'DESCRI'#199#195'O'

@@ -42,6 +42,8 @@ type
     tb_balancaCAMINHO_TXT: TStringField;
     tb_balancaMONITORAR: TBooleanField;
     tb_balancaTIMEOUT: TIntegerField;
+    tb_pesagemPLACA: TStringField;
+    tb_pesagemMOTORISTA: TStringField;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -65,15 +67,16 @@ implementation
 
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
   begin
-    try
+      conexao.Connected := False;
+    //try
       iniConfig := TIniFile.Create('.\Config.ini');
       database := iniConfig.ReadString('DATABASE', 'database', '');
       port := iniConfig.ReadString('DATABASE', 'port', '');
       host := iniConfig.ReadString('DATABASE', 'host', '');
-      dll := iniConfig.ReadString('DATABASE', 'dll', '');
-    except
+      //dll := iniConfig.ReadString('DATABASE', 'dll', '');
+    //except
 
-    end;
+    //end;
     with conexao do
       begin
         Params.Clear;
@@ -88,6 +91,7 @@ procedure TDataModule1.DataModuleCreate(Sender: TObject);
         tb_pesagem.Active :=  True;
         tb_balanca.Active := True;
       end;
+      conexao.Connected :=  True;
   end;
 
 end.

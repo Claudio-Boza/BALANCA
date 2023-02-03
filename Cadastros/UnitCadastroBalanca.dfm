@@ -12,12 +12,14 @@ object FrmBalanca: TFrmBalanca
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OldCreateOrder = True
   Position = poMainFormCenter
   OnCreate = FormCreate
+  PixelsPerInch = 96
   TextHeight = 15
   object Label1: TLabel
     Left = 24
-    Top = 48
+    Top = 32
     Width = 41
     Height = 15
     Caption = 'Balanca'
@@ -26,7 +28,7 @@ object FrmBalanca: TFrmBalanca
   end
   object Label4: TLabel
     Left = 24
-    Top = 102
+    Top = 86
     Width = 59
     Height = 15
     Caption = 'Porta Serial'
@@ -35,7 +37,7 @@ object FrmBalanca: TFrmBalanca
   end
   object Label5: TLabel
     Left = 24
-    Top = 152
+    Top = 136
     Width = 50
     Height = 15
     Caption = 'Baud rate'
@@ -44,7 +46,7 @@ object FrmBalanca: TFrmBalanca
   end
   object Label6: TLabel
     Left = 24
-    Top = 202
+    Top = 186
     Width = 46
     Height = 15
     Caption = 'Data Bits'
@@ -53,7 +55,7 @@ object FrmBalanca: TFrmBalanca
   end
   object Label7: TLabel
     Left = 24
-    Top = 256
+    Top = 240
     Width = 30
     Height = 15
     Caption = 'Parity'
@@ -62,7 +64,7 @@ object FrmBalanca: TFrmBalanca
   end
   object Label11: TLabel
     Left = 24
-    Top = 312
+    Top = 296
     Width = 46
     Height = 15
     Caption = 'Stop Bits'
@@ -71,7 +73,7 @@ object FrmBalanca: TFrmBalanca
   end
   object Label8: TLabel
     Left = 24
-    Top = 365
+    Top = 349
     Width = 70
     Height = 15
     Caption = 'Handshaking'
@@ -80,7 +82,7 @@ object FrmBalanca: TFrmBalanca
   end
   object Label9: TLabel
     Left = 248
-    Top = 103
+    Top = 87
     Width = 46
     Height = 15
     Caption = 'TimeOut'
@@ -88,7 +90,7 @@ object FrmBalanca: TFrmBalanca
     ParentColor = False
   end
   object COD: TLabel
-    Left = 32
+    Left = 24
     Top = 8
     Width = 6
     Height = 15
@@ -96,7 +98,7 @@ object FrmBalanca: TFrmBalanca
   end
   object cmbHand: TComboBox
     Left = 24
-    Top = 386
+    Top = 370
     Width = 172
     Height = 23
     ItemIndex = 0
@@ -110,7 +112,7 @@ object FrmBalanca: TFrmBalanca
   end
   object cmbStop: TComboBox
     Left = 24
-    Top = 333
+    Top = 317
     Width = 172
     Height = 23
     ItemIndex = 0
@@ -123,7 +125,7 @@ object FrmBalanca: TFrmBalanca
   end
   object cmbParity: TComboBox
     Left = 24
-    Top = 277
+    Top = 261
     Width = 172
     Height = 23
     ItemIndex = 0
@@ -138,7 +140,7 @@ object FrmBalanca: TFrmBalanca
   end
   object cmbData: TComboBox
     Left = 24
-    Top = 221
+    Top = 205
     Width = 172
     Height = 23
     ItemIndex = 0
@@ -152,7 +154,7 @@ object FrmBalanca: TFrmBalanca
   end
   object cmbBaud: TComboBox
     Left = 24
-    Top = 173
+    Top = 157
     Width = 172
     Height = 23
     ItemIndex = 0
@@ -174,7 +176,7 @@ object FrmBalanca: TFrmBalanca
   end
   object cmbPorta: TComboBox
     Left = 24
-    Top = 123
+    Top = 107
     Width = 172
     Height = 23
     ItemIndex = 0
@@ -194,7 +196,7 @@ object FrmBalanca: TFrmBalanca
   end
   object cmbBalanca: TComboBox
     Left = 24
-    Top = 69
+    Top = 53
     Width = 172
     Height = 23
     AutoComplete = False
@@ -241,7 +243,7 @@ object FrmBalanca: TFrmBalanca
   end
   object cbMonitorar: TCheckBox
     Left = 248
-    Top = 73
+    Top = 57
     Width = 137
     Height = 17
     Caption = 'Monitorar a Balan'#231'a'
@@ -249,7 +251,7 @@ object FrmBalanca: TFrmBalanca
   end
   object edtTime: TEdit
     Left = 248
-    Top = 124
+    Top = 108
     Width = 81
     Height = 23
     TabOrder = 8
@@ -257,7 +259,7 @@ object FrmBalanca: TFrmBalanca
   end
   object Button3: TButton
     Left = 248
-    Top = 308
+    Top = 292
     Width = 131
     Height = 48
     Caption = 'Salvar'
@@ -266,7 +268,7 @@ object FrmBalanca: TFrmBalanca
   end
   object Button4: TButton
     Left = 248
-    Top = 362
+    Top = 346
     Width = 131
     Height = 48
     Caption = 'Cancelar'
@@ -276,6 +278,6 @@ object FrmBalanca: TFrmBalanca
   object ACBrBAL1: TACBrBAL
     Porta = 'COM1'
     Left = 344
-    Top = 217
+    Top = 201
   end
 end
