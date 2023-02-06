@@ -99,8 +99,15 @@ function TFrmPrincipal.Converte(cmd: String): String;
 
 procedure TFrmPrincipal.DBGrid1CellClick(Column: TColumn);
 begin
+  DataModule1.tb_pesagem.Edit;
   btnCancelar.Enabled := True;
   GroupBox1.Enabled := False;
+  edtDtEntrada.Text := DataModule1.tb_pesagem.FieldByName('DATA_ENTRADA').Value;
+  edtHorasEntrada.Text := DataModule1.tb_pesagem.FieldByName('HORAS_ENTRADA').Value;
+  edtPlaca.Text := DataModule1.tb_pesagem.FieldByName('PLACA').Value;
+  edtMotorista.Text := DataModule1.tb_pesagem.FieldByName('MOTORISTA').Value;
+  edtDescricao.Text := DataModule1.tb_pesagem.FieldByName('DESCICAO').Value;
+  Button1.Caption := 'Pesar Bruto!';
 end;
 
 procedure TFrmPrincipal.ACBrBAL1LePeso(Peso: Double; Resposta: String);
@@ -167,6 +174,10 @@ procedure TFrmPrincipal.btnCancelarClick(Sender: TObject);
 begin
   GroupBox1.Enabled := True;
   btnCancelar.Enabled := False;
+  limparCampos;
+  Button1.Caption :=  ' Ler Peso!';
+  edtPlaca.SetFocus;
+  DataModule1.tb_pesagem.Cancel;
 end;
 
 procedure TFrmPrincipal.btnPesagensClick(Sender: TObject);
@@ -205,6 +216,7 @@ procedure TFrmPrincipal.Button1Click(Sender: TObject);
 
 procedure TFrmPrincipal.btnSalvarClick(Sender: TObject);
   begin
+    DataModule1.tb_pesagem.Insert;
     if sttPeso.Caption <> '-900' then
       begin
         DataModule1.tb_pesagem.Close;
