@@ -20,8 +20,11 @@ type
     GroupBox1: TGroupBox;
     Label2: TLabel;
     edtHorasEntrada: TMaskEdit;
-    Edit1: TEdit;
+    edtDescricao: TEdit;
     Label3: TLabel;
+    //
+    edtPlaca : TMaskEdit;
+    //
     Label4: TLabel;
     sttPeso: TLabel;
     gbSaida: TGroupBox;
@@ -33,12 +36,12 @@ type
     edtHorasSaida: TMaskEdit;
     DBGrid1: TDBGrid;
     Button1: TButton;
-    Button2: TButton;
-    Button3: TButton;
+    btnSalvar: TButton;
+    btnCancelar: TButton;
     sttResposta: TLabel;
     Memo1: TMemo;
     Panel3: TPanel;
-    Edit2: TEdit;
+    edtMotorista: TEdit;
     Label10: TLabel;
     procedure btnBalancaClick(Sender: TObject);
     procedure btnPesagensClick(Sender: TObject);
@@ -47,6 +50,10 @@ type
     procedure Button1Click(Sender: TObject);
     procedure ACBrBAL1LePeso(Peso: Double; Resposta: String);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnSalvarClick(Sender: TObject);
+    procedure limparCampos();
+    procedure DBGrid1CellClick(Column: TColumn);
+    procedure btnCancelarClick(Sender: TObject);
   private
     { Private declarations }
     procedure InicializarBalanca(Ativar: Boolean);
@@ -64,6 +71,16 @@ implementation
 
 uses UnitDataModule, UnitCadastroBalanca, UnitPesagens, ACBrDeviceSerial, ACBrUtil.Base,ACBrUtil.FilesIO;
 
+procedure TFrmPrincipal.limparCampos();
+  begin
+    edtDtEntrada.Text := '';
+    edtHorasEntrada.Text := '__:__:__';
+    edtPlaca.Text := '___-____';
+    edtMotorista.Text := '';
+    sttPeso.Caption := '000,00';
+    edtDescricao.Text := '';
+  end;
+
 function TFrmPrincipal.Converte(cmd: String): String;
   var A : Integer ;
   begin
@@ -79,6 +96,12 @@ function TFrmPrincipal.Converte(cmd: String): String;
           Result := Result + cmd[A] + ' ';
     end ;
   end;
+
+procedure TFrmPrincipal.DBGrid1CellClick(Column: TColumn);
+begin
+  btnCancelar.Enabled := True;
+  GroupBox1.Enabled := False;
+end;
 
 procedure TFrmPrincipal.ACBrBAL1LePeso(Peso: Double; Resposta: String);
   var valid : integer;
@@ -140,6 +163,12 @@ begin
   end;
 end;
 
+procedure TFrmPrincipal.btnCancelarClick(Sender: TObject);
+begin
+  GroupBox1.Enabled := True;
+  btnCancelar.Enabled := False;
+end;
+
 procedure TFrmPrincipal.btnPesagensClick(Sender: TObject);
   var
     FrmPesagens : TFrmPesagens;
@@ -159,6 +188,7 @@ procedure TFrmPrincipal.Button1Click(Sender: TObject);
     Time : TTime;
   begin
     //Time :=  GetTimeInDateTime(Now());
+     btnSalvar.Enabled := True;
      edtDtEntrada.Text :=  FormatDateTime('dd/mm/yyyy', Date);
      edtHorasEntrada.Text := FormatDateTime('hh:mm:ss', Now);
      InicializarBalanca(True);
@@ -167,10 +197,36 @@ procedure TFrmPrincipal.Button1Click(Sender: TObject);
      except
        TimeOut := 2000;
      end;
-     //ACBrBAL1.LePeso(TimeOut);
      ACBrBAL1.LePeso( TimeOut );
+     ShowMessage(FloatToIntStr(ACBrBAL1.LePeso( TimeOut )));
      sttPeso.Caption := FloatToIntStr(ACBrBAL1.LePeso( TimeOut ));
 
+  end;
+
+procedure TFrmPrincipal.btnSalvarClick(Sender: TObject);
+  begin
+    if sttPeso.Caption <> '-900' then
+      begin
+        DataModule1.tb_pesagem.Close;
+        DataModule1.tb_pesagem.Open;
+        DataModule1.tb_pesagem.Insert;
+        with DataModule1.tb_pesagem do
+          begin
+            FieldByName('DESCRICAO').Value := edtDescricao.Text;
+            FieldByName('DATA_ENTRADA').Value := edtDtEntrada.Text;
+            FieldByName('HORAS_ENTRADA').Value := edtHorasEntrada.Text;
+            FieldByName('PLACA').Value :=  edtPlaca.Text;
+            FieldByName('MOTORISTA').Value := edtMotorista.Text;
+            FieldByName('PESO_BRUTO').Value := StrToFloat(sttPeso.Caption);
+            Post;
+            limparCampos;
+          end;
+      end
+      else
+        begin
+          ShowMessage('Peso invalido!');
+        end;
+    btnSalvar.Enabled := False;
   end;
 
 procedure TFrmPrincipal.edtDtEntradaKeyPress(Sender: TObject; var Key: Char);
@@ -195,6 +251,7 @@ end;
 procedure TFrmPrincipal.FormShow(Sender: TObject);
 begin
   DataModule1.tb_pesagem.Refresh;
+  btnSalvar.Enabled := False;
 end;
 
 end.

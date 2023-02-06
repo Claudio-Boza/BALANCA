@@ -119,12 +119,14 @@ object DataModule1: TDataModule1
       Size = 8
     end
     object tb_pesagemMOTORISTA: TStringField
+      DisplayWidth = 25
       FieldName = 'MOTORISTA'
       Origin = 'MOTORISTA'
       Size = 80
     end
     object tb_pesagemDESCRICAO: TStringField
       DisplayLabel = 'DESCRI'#199#195'O'
+      DisplayWidth = 30
       FieldName = 'DESCRICAO'
       Origin = 'DESCRICAO'
       Size = 254

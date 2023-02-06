@@ -449,7 +449,7 @@ object FrmPrincipal: TFrmPrincipal
         Font.Style = []
         MaxLength = 10
         ParentFont = False
-        TabOrder = 0
+        TabOrder = 3
         Text = '  /  /    '
         OnKeyPress = edtDtEntradaKeyPress
       end
@@ -467,24 +467,26 @@ object FrmPrincipal: TFrmPrincipal
         Font.Style = []
         MaxLength = 8
         ParentFont = False
-        TabOrder = 1
+        TabOrder = 4
         Text = '  :  :  '
         OnKeyPress = edtDtEntradaKeyPress
       end
-      object Edit1: TEdit
+      object edtDescricao: TEdit
         Left = 9
         Top = 297
         Width = 310
         Height = 65
         AutoSize = False
+        CharCase = ecUpperCase
         TabOrder = 2
       end
-      object MaskEdit1: TMaskEdit
+      object edtPlaca: TMaskEdit
         Left = 72
         Top = 121
         Width = 81
         Height = 23
         Margins.Left = 10
+        CharCase = ecUpperCase
         EditMask = 'AAA-AAAA;1;_'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -493,17 +495,18 @@ object FrmPrincipal: TFrmPrincipal
         Font.Style = []
         MaxLength = 8
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 0
         Text = '   -    '
         OnKeyPress = edtDtEntradaKeyPress
       end
-      object Edit2: TEdit
+      object edtMotorista: TEdit
         Left = 15
         Top = 181
         Width = 310
         Height = 28
         AutoSize = False
-        TabOrder = 4
+        CharCase = ecUpperCase
+        TabOrder = 1
       end
     end
     object gbSaida: TGroupBox
@@ -626,6 +629,7 @@ object FrmPrincipal: TFrmPrincipal
       Width = 381
       Height = 586
       Align = alLeft
+      Anchors = [akLeft, akTop, akRight, akBottom]
       DataSource = DataModule1.ds_pesagem
       TabOrder = 2
       TitleFont.Charset = DEFAULT_CHARSET
@@ -633,6 +637,7 @@ object FrmPrincipal: TFrmPrincipal
       TitleFont.Height = -12
       TitleFont.Name = 'Segoe UI'
       TitleFont.Style = []
+      OnCellClick = DBGrid1CellClick
     end
     object Panel3: TPanel
       Left = 1
@@ -647,25 +652,27 @@ object FrmPrincipal: TFrmPrincipal
         Width = 177
         Height = 52
         Caption = 'Pesar'
-        TabOrder = 0
+        TabOrder = 1
         OnClick = Button1Click
       end
-      object Button2: TButton
+      object btnSalvar: TButton
         Left = 354
         Top = 12
         Width = 177
         Height = 52
         Caption = 'Salvar'
-        TabOrder = 1
+        TabOrder = 2
+        OnClick = btnSalvarClick
       end
-      object Button3: TButton
+      object btnCancelar: TButton
         Left = 590
         Top = 12
         Width = 177
         Height = 52
         Caption = 'Cancelar'
         Enabled = False
-        TabOrder = 2
+        TabOrder = 0
+        OnClick = btnCancelarClick
       end
     end
   end

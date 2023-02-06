@@ -1,11 +1,10 @@
 object FrmPrincipal: TFrmPrincipal
   Left = 0
   Top = 0
-  BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Balan'#231'a'
   ClientHeight = 666
-  ClientWidth = 1420
+  ClientWidth = 1183
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -24,6 +23,8 @@ object FrmPrincipal: TFrmPrincipal
     Width = 161
     Height = 666
     Align = alLeft
+    Color = clScrollBar
+    ParentBackground = False
     TabOrder = 0
     DesignSize = (
       161
@@ -319,22 +320,28 @@ object FrmPrincipal: TFrmPrincipal
   object Panel2: TPanel
     Left = 161
     Top = 0
-    Width = 1259
+    Width = 1022
     Height = 666
     Margins.Left = 10
     Align = alClient
+    Color = clSilver
+    ParentBackground = False
     TabOrder = 1
     object GroupBox1: TGroupBox
-      Left = 14
-      Top = 16
-      Width = 331
-      Height = 553
+      Left = 1
+      Top = 1
+      Width = 328
+      Height = 592
+      Align = alLeft
       Caption = 'Entrada'
+      Color = clGrayText
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
+      ParentBackground = False
+      ParentColor = False
       ParentFont = False
       TabOrder = 0
       object Label1: TLabel
@@ -364,7 +371,7 @@ object FrmPrincipal: TFrmPrincipal
         ParentFont = False
       end
       object Label3: TLabel
-        Left = 3
+        Left = 10
         Top = 266
         Width = 82
         Height = 25
@@ -377,8 +384,8 @@ object FrmPrincipal: TFrmPrincipal
         ParentFont = False
       end
       object Label4: TLabel
-        Left = 11
-        Top = 369
+        Left = 48
+        Top = 393
         Width = 44
         Height = 25
         Caption = 'Peso:'
@@ -390,8 +397,8 @@ object FrmPrincipal: TFrmPrincipal
         ParentFont = False
       end
       object sttPeso: TLabel
-        Left = 11
-        Top = 400
+        Left = 35
+        Top = 424
         Width = 241
         Height = 75
         Caption = '0000,00'
@@ -408,6 +415,19 @@ object FrmPrincipal: TFrmPrincipal
         Width = 50
         Height = 25
         Caption = 'Placa:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = 25
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label10: TLabel
+        Left = 14
+        Top = 150
+        Width = 83
+        Height = 25
+        Caption = 'Motorista'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = 25
@@ -436,30 +456,30 @@ object FrmPrincipal: TFrmPrincipal
       object edtHorasEntrada: TMaskEdit
         Left = 139
         Top = 79
-        Width = 100
+        Width = 98
         Height = 23
         Margins.Left = 10
-        EditMask = '!90:00;1;_'
+        EditMask = '00:00:00;1;_'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = 15
         Font.Name = 'Segoe UI'
         Font.Style = []
-        MaxLength = 5
+        MaxLength = 8
         ParentFont = False
         TabOrder = 1
-        Text = '  :  '
+        Text = '  :  :  '
         OnKeyPress = edtDtEntradaKeyPress
       end
       object Edit1: TEdit
-        Left = 3
+        Left = 9
         Top = 297
         Width = 310
         Height = 65
         AutoSize = False
         TabOrder = 2
       end
-      object MaskEdit1: TMaskEdit
+      object edtPlaca: TMaskEdit
         Left = 72
         Top = 121
         Width = 81
@@ -477,18 +497,30 @@ object FrmPrincipal: TFrmPrincipal
         Text = '   -    '
         OnKeyPress = edtDtEntradaKeyPress
       end
+      object edtMotorista: TEdit
+        Left = 15
+        Top = 181
+        Width = 310
+        Height = 28
+        AutoSize = False
+        TabOrder = 4
+      end
     end
     object gbSaida: TGroupBox
-      Left = 374
-      Top = 16
-      Width = 345
-      Height = 541
+      Left = 329
+      Top = 1
+      Width = 304
+      Height = 592
+      Align = alLeft
       Caption = 'Sa'#237'da'
+      Color = clGrayText
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -16
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
+      ParentBackground = False
+      ParentColor = False
       ParentFont = False
       TabOrder = 1
       object Label6: TLabel
@@ -517,22 +549,9 @@ object FrmPrincipal: TFrmPrincipal
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label8: TLabel
-        Left = 18
-        Top = 121
-        Width = 82
-        Height = 25
-        Caption = 'Descri'#231#227'o'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = 25
-        Font.Name = 'Segoe UI'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
       object Label9: TLabel
-        Left = 18
-        Top = 297
+        Left = 62
+        Top = 393
         Width = 44
         Height = 25
         Caption = 'Peso:'
@@ -544,8 +563,8 @@ object FrmPrincipal: TFrmPrincipal
         ParentFont = False
       end
       object lbPesoSaida: TLabel
-        Left = 18
-        Top = 320
+        Left = 46
+        Top = 424
         Width = 241
         Height = 75
         Caption = '0000,00'
@@ -592,30 +611,21 @@ object FrmPrincipal: TFrmPrincipal
         Text = '  :  '
         OnKeyPress = edtDtEntradaKeyPress
       end
-      object edtDecricaoSaida: TEdit
-        Left = 18
-        Top = 152
-        Width = 310
-        Height = 121
-        AutoSize = False
-        TabOrder = 2
-      end
       object Memo1: TMemo
-        Left = 56
-        Top = 424
-        Width = 185
-        Height = 89
-        Lines.Strings = (
-          'Memo1')
-        TabOrder = 3
+        Left = 88
+        Top = 554
+        Width = 153
+        Height = 32
+        TabOrder = 2
       end
     end
     object DBGrid1: TDBGrid
       AlignWithMargins = True
-      Left = 733
+      Left = 636
       Top = 4
-      Width = 516
-      Height = 565
+      Width = 381
+      Height = 586
+      Align = alLeft
       DataSource = DataModule1.ds_pesagem
       TabOrder = 2
       TitleFont.Charset = DEFAULT_CHARSET
@@ -624,30 +634,40 @@ object FrmPrincipal: TFrmPrincipal
       TitleFont.Name = 'Segoe UI'
       TitleFont.Style = []
     end
-    object Button1: TButton
-      Left = 116
-      Top = 592
-      Width = 177
-      Height = 52
-      Caption = 'Pesar'
+    object Panel3: TPanel
+      Left = 1
+      Top = 593
+      Width = 1020
+      Height = 72
+      Align = alBottom
       TabOrder = 3
-      OnClick = Button1Click
-    end
-    object Button2: TButton
-      Left = 334
-      Top = 592
-      Width = 177
-      Height = 52
-      Caption = 'Salvar'
-      TabOrder = 4
-    end
-    object Button3: TButton
-      Left = 550
-      Top = 592
-      Width = 177
-      Height = 52
-      Caption = 'Button1'
-      TabOrder = 5
+      object Button1: TButton
+        Left = 132
+        Top = 12
+        Width = 177
+        Height = 52
+        Caption = 'Pesar'
+        TabOrder = 0
+        OnClick = Button1Click
+      end
+      object btnSalvar: TButton
+        Left = 354
+        Top = 12
+        Width = 177
+        Height = 52
+        Caption = 'Salvar'
+        TabOrder = 1
+        OnClick = btnSalvarClick
+      end
+      object Button3: TButton
+        Left = 590
+        Top = 12
+        Width = 177
+        Height = 52
+        Caption = 'Cancelar'
+        Enabled = False
+        TabOrder = 2
+      end
     end
   end
   object ACBrBAL1: TACBrBAL
