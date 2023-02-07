@@ -12,7 +12,9 @@ object FrmPesagens: TFrmPesagens
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OldCreateOrder = True
   Position = poMainFormCenter
+  PixelsPerInch = 96
   TextHeight = 15
   object DBGrid1: TDBGrid
     Left = 0
@@ -63,6 +65,7 @@ object FrmPesagens: TFrmPesagens
       Font.Style = []
       ParentFont = False
       TabOrder = 1
+      OnClick = btnExcluirClick
     end
     object Button1: TButton
       Left = 704

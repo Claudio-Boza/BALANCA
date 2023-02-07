@@ -6,7 +6,7 @@ object FrmBalanca: TFrmBalanca
   Caption = 'Configur'#227'o da Balan'#231'a'
   ClientHeight = 418
   ClientWidth = 402
-  Color = clBtnFace
+  Color = clGrayText
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12

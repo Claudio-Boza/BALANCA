@@ -316,6 +316,15 @@ object FrmPrincipal: TFrmPrincipal
       OnClick = btnPesagensClick
       ExplicitLeft = 12
     end
+    object Button2: TButton
+      Left = 40
+      Top = 338
+      Width = 75
+      Height = 25
+      Caption = 'Button2'
+      TabOrder = 0
+      OnClick = Button2Click
+    end
   end
   object Panel2: TPanel
     Left = 161
@@ -492,7 +501,7 @@ object FrmPrincipal: TFrmPrincipal
         Font.Color = clWindowText
         Font.Height = 15
         Font.Name = 'Segoe UI'
-        Font.Style = []
+        Font.Style = [fsBold]
         MaxLength = 8
         ParentFont = False
         TabOrder = 0
@@ -599,19 +608,19 @@ object FrmPrincipal: TFrmPrincipal
       object edtHorasSaida: TMaskEdit
         Left = 146
         Top = 79
-        Width = 100
+        Width = 98
         Height = 23
         Margins.Left = 10
-        EditMask = '!90:00;1;_'
+        EditMask = '00:00:00;1;_'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
         Font.Height = 15
         Font.Name = 'Segoe UI'
         Font.Style = []
-        MaxLength = 5
+        MaxLength = 8
         ParentFont = False
         TabOrder = 1
-        Text = '  :  '
+        Text = '  :  :  '
         OnKeyPress = edtDtEntradaKeyPress
       end
       object Memo1: TMemo
@@ -647,7 +656,7 @@ object FrmPrincipal: TFrmPrincipal
       Align = alBottom
       TabOrder = 3
       object Button1: TButton
-        Left = 132
+        Left = 139
         Top = 12
         Width = 177
         Height = 52
@@ -665,7 +674,7 @@ object FrmPrincipal: TFrmPrincipal
         OnClick = btnSalvarClick
       end
       object btnCancelar: TButton
-        Left = 590
+        Left = 574
         Top = 12
         Width = 177
         Height = 52

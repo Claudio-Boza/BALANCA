@@ -27,7 +27,6 @@ type
     tb_pesagemDATA_ENTRADA: TDateField;
     tb_pesagemHORAS_ENTRADA: TTimeField;
     tb_pesagemDATA_SAIDA: TDateField;
-    tb_pesagemHORAS_SAIDA: TIntegerField;
     tb_pesagemPESO_BRUTO: TFMTBCDField;
     tb_pesagemPESO_LIQUIDO: TFMTBCDField;
     tb_pesagemPESO_TOTAL: TFMTBCDField;
@@ -44,6 +43,7 @@ type
     tb_balancaTIMEOUT: TIntegerField;
     tb_pesagemPLACA: TStringField;
     tb_pesagemMOTORISTA: TStringField;
+    tb_pesagemHORAS_SAIDA: TTimeField;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }

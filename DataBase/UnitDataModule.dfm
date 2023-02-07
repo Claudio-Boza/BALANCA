@@ -146,7 +146,7 @@ object DataModule1: TDataModule1
       FieldName = 'DATA_SAIDA'
       Origin = 'DATA_SAIDA'
     end
-    object tb_pesagemHORAS_SAIDA: TIntegerField
+    object tb_pesagemHORAS_SAIDA: TTimeField
       DisplayLabel = 'HORAS SA'#205'DA'
       FieldName = 'HORAS_SAIDA'
       Origin = 'HORAS_SAIDA'

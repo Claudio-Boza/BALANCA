@@ -14,6 +14,7 @@ type
     btnExcluir: TButton;
     Button1: TButton;
     Panel1: TPanel;
+    procedure btnExcluirClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,4 +30,16 @@ implementation
 
 uses UnitDataModule;
 
+procedure TFrmPesagens.btnExcluirClick(Sender: TObject);
+  begin
+    if MessageDlg('Excluir registro?', mtInformation, [mbYes, mbNo],0) = mrYes then
+      begin
+        DataModule1.tb_pesagem.Delete;
+      end
+    else
+      begin
+        abort;
+      end;
+
+  end;
 end.

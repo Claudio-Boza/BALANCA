@@ -99,7 +99,7 @@
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <VerInfo_Locale>1033</VerInfo_Locale>
+        <VerInfo_Locale>1046</VerInfo_Locale>
         <Icon_MainIcon>Balança_Icon.ico</Icon_MainIcon>
         <UWP_DelphiLogo44>icones\balanca-de-cozinha laranja 32.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>icones\balanca-de-cozinha laranja 64.png</UWP_DelphiLogo150>
