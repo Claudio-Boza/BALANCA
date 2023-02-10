@@ -316,15 +316,6 @@ object FrmPrincipal: TFrmPrincipal
       OnClick = btnPesagensClick
       ExplicitLeft = 12
     end
-    object Button2: TButton
-      Left = 40
-      Top = 338
-      Width = 75
-      Height = 25
-      Caption = 'Button2'
-      TabOrder = 0
-      OnClick = Button2Click
-    end
   end
   object Panel2: TPanel
     Left = 161
@@ -509,9 +500,9 @@ object FrmPrincipal: TFrmPrincipal
         OnKeyPress = edtDtEntradaKeyPress
       end
       object edtMotorista: TEdit
-        Left = 15
+        Left = 11
         Top = 181
-        Width = 310
+        Width = 305
         Height = 28
         AutoSize = False
         CharCase = ecUpperCase

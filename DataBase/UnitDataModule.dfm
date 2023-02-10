@@ -10,7 +10,6 @@ object DataModule1: TDataModule1
       'Password=masterkey'
       'Port=3050'
       'DriverID=FB')
-    Connected = True
     LoginPrompt = False
     Left = 48
     Top = 32
@@ -114,6 +113,7 @@ object DataModule1: TDataModule1
       Visible = False
     end
     object tb_pesagemPLACA: TStringField
+      DisplayWidth = 10
       FieldName = 'PLACA'
       Origin = 'PLACA'
       Size = 8

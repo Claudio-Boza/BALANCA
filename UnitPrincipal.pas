@@ -43,7 +43,6 @@ type
     Panel3: TPanel;
     edtMotorista: TEdit;
     Label10: TLabel;
-    Button2: TButton;
     procedure btnBalancaClick(Sender: TObject);
     procedure btnPesagensClick(Sender: TObject);
     procedure edtDtEntradaKeyPress(Sender: TObject; var Key: Char);
@@ -105,16 +104,19 @@ function TFrmPrincipal.Converte(cmd: String): String;
 
 procedure TFrmPrincipal.DBGrid1CellClick(Column: TColumn);
 begin
+  limparCampos;
   tipoPeso := True;
   DataModule1.tb_pesagem.Edit;
-  btnCancelar.Enabled := True;
-  GroupBox1.Enabled := False;
-  edtDtEntrada.Text := DataModule1.tb_pesagem.FieldByName('DATA_ENTRADA').Value;
-  edtHorasEntrada.Text := DataModule1.tb_pesagem.FieldByName('HORAS_ENTRADA').Value;
-  edtPlaca.Text := DataModule1.tb_pesagem.FieldByName('PLACA').Value;
-  edtMotorista.Text := DataModule1.tb_pesagem.FieldByName('MOTORISTA').Value;
-  edtDescricao.Text := DataModule1.tb_pesagem.FieldByName('DESCRICAO').Value;
-  sttPeso.Caption := DataModule1.tb_pesagem.FieldByName('PESO_BRUTO').Value;
+  btnCancelar.Enabled   := True;
+  GroupBox1.Enabled     := False;
+  edtDtEntrada.Text     := DataModule1.tb_pesagem.FieldByName('DATA_ENTRADA').Value;
+  edtHorasEntrada.Text  := DataModule1.tb_pesagem.FieldByName('HORAS_ENTRADA').Value;
+  edtPlaca.Text         := DataModule1.tb_pesagem.FieldByName('PLACA').Value;
+  edtMotorista.Text     := DataModule1.tb_pesagem.FieldByName('MOTORISTA').Value;
+  edtDescricao.Text     := DataModule1.tb_pesagem.FieldByName('DESCRICAO').Value;
+  sttPeso.Caption       := DataModule1.tb_pesagem.FieldByName('PESO_BRUTO').Value;
+  if DataModule1.tb_pesagem.FieldByName('PESO_LIQUIDO').Value <> NULL then
+    lbPesoSaida.Caption := DataModule1.tb_pesagem.FieldByName('PESO_LIQUIDO').Value;
   Button1.Caption := 'Pesar Bruto!';
 end;
 
@@ -261,8 +263,8 @@ procedure TFrmPrincipal.btnSalvarClick(Sender: TObject);
         DataModule1.tb_pesagem.Insert;
         if sttPeso.Caption <> '-900' then
           begin
-            DataModule1.tb_pesagem.Close;
-            DataModule1.tb_pesagem.Open;
+            //DataModule1.tb_pesagem.Close;
+            //DataModule1.tb_pesagem.Open;
             DataModule1.tb_pesagem.Insert;
             with DataModule1.tb_pesagem do
               begin
@@ -291,6 +293,7 @@ procedure TFrmPrincipal.btnSalvarClick(Sender: TObject);
               FieldByName('DATA_SAIDA').Value := EdtDataSaida.Text;
               FieldByName('HORAS_SAIDA').Value := edtHorasSaida.Text;
               FieldByName('PESO_LIQUIDO').Value := StrToFloat(lbPesoSaida.Caption);
+              FieldByName('PESO_TOTAL').Value:= FieldByName('PESO_BRUTO').Value - StrToFloat(lbPesoSaida.Caption);
               post;
             end;
 
@@ -300,6 +303,7 @@ procedure TFrmPrincipal.btnSalvarClick(Sender: TObject);
     tipoPeso := False;
     limparCampos;
     Button1.Caption := 'Pesar';
+    GroupBox1.Enabled := True;
   end;
 
 procedure TFrmPrincipal.edtDtEntradaKeyPress(Sender: TObject; var Key: Char);
